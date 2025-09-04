@@ -2,22 +2,25 @@
 #define TIMERVIEW_H
 
 #include <QMainWindow>
+#include "TimerLogic.h"
 
-QT_BEGIN_NAMESPACE
 namespace Ui {
 class TimerView;
 }
-QT_END_NAMESPACE
 
-class TimerView : public QMainWindow
-{
+class TimerView : public QMainWindow {
     Q_OBJECT
 
 public:
-    TimerView(QWidget *parent = nullptr);
+    explicit TimerView(QWidget *parent = nullptr);
     ~TimerView();
+
+private slots:
+    void on_pushButton_clicked();
 
 private:
     Ui::TimerView *ui;
+    TimerLogic m_timerLogic;
 };
+
 #endif // TIMERVIEW_H
